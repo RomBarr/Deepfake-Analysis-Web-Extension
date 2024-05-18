@@ -1,0 +1,54 @@
+/*
+  File: popup.css
+  Version: 1.0
+  Description: Styles for DeepFake Analysis Extension popup.html UI.
+  Author: Roman Barron
+  Date: 02/08/2024
+  Last Revision: 5/16/2024
+*/
+body {
+  width: 300px;  /* Adjusted width for better alignment */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin: 5px;
+  width: 80%; /* Make buttons wider */
+}
+
+#resultsContainer {
+  width: 100%;  /* Full width of the popup */
+  max-height: 200px;  /* Maximum height before scroll */
+  overflow-y: auto;  /* Enable vertical scrolling */
+  border: 1px solid #ccc;  /* Optional: adds border around the history area */
+  margin-top: 10px;  /* Space between buttons and history */
+  padding: 5px;
+}
+
+.history-item {
+  background-color: #f0f0f0;  /* Light grey background for each item */
+  border: 1px solid #ddd;  /* Subtle border for each item */
+  padding: 5px;
+  margin-bottom: 5px;  /* Space between entries */
+}
+
+/* Style for button when active */
+.button-active {
+  background-color: #007BFF; /* Change to a noticeable color */
+  color: white;
+  border: none;
+}
+
+/* Custom cursor for the entire body during image selection */
+.body-image-selecting {
+  cursor: crosshair; /* Or any other suitable cursor */
+}
