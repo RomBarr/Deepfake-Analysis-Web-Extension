@@ -39,9 +39,6 @@ For each fold, the FFNN architecture was re-initialized and trained on the train
 
 The MLP model was trained on the training data and validated on a validation split. The best model based on validation loss was saved, and the final model was evaluated on the test data, with accuracy and loss metrics printed to assess performance.
 
-The MLP model differs from the FFNN in its use of Batch Normalization layers and additional hidden layers with different dropout rates, leading to potentially more stable and optimal training.
-
-
 5. Generative Adversarial Network (GAN) Discriminator:
    - This model is a Generative Adversarial Network (GAN) discriminator used to detect DeepFake images. The GAN consists of two parts: a generator and a discriminator. The discriminator's role is to distinguish between real and generated (fake) data, while the generator creates fake data to fool the discriminator.
 

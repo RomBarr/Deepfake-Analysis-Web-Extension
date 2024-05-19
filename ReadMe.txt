@@ -69,3 +69,5 @@ To run the Flask backend required for the Chrome extension, execute the followin
 
 - Ensure the Flask backend is running before using the Chrome extension.
 - The extension relies on the backend to function correctly.
+- Only Scripts, BackendApplication, and ChromeExtension folders are required to run application.
+- Machine Learning Folder is provided to show data, implimentation and training workflow of the Machine Learning Models.
