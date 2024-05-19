@@ -1,0 +1,6 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Explicitly declare specific files to use LF
+BackendApplication/image_data_extraction.py text eol=lf
+BackendApplication/my_flask_app.py text eol=lf
