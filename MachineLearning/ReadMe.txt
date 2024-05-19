@@ -20,7 +20,6 @@ Dataset used to train Models:
 
 
 Implemented Models:
-   - Description:
 
 1. Support Vector Machine (SVM):
    - Description: This model is a Support Vector Machine (SVM) classifier used to detect DeepFake images. The model was trained using the 'transformed' dataset where features were prepared from the dataset, excluding target feature. The dataset was split into training and testing sets, and a GridSearchCV with StratifiedKFold cross-validation was used to find optimal hyperparameters for the SVM. The model was evaluated using accuracy as the scoring metric. The best parameters found were used to train the final SVM model, which was then saved for future use.
@@ -33,29 +32,10 @@ Implemented Models:
 3. Feedforward Neural Network (FFNN):
    - Description: This model is a Feedforward Neural Network (FFNN) used to detect DeepFake images. The model was trained using 'transformed' dataset, where features were prepared from the dataset, excluding the target feature. The dataset was split into training and testing sets using K-fold cross-validation with 5 folds.
 
-For each fold, the FFNN architecture was re-initialized and trained on the training data with early stopping and learning rate reduction implemented to avoid overfitting. Model checkpoints were used to save the best model based on validation accuracy.
-
-The final FFNN architecture consists of:
-- An input layer with 128 neurons and ReLU activation.
-- A hidden layer with 64 neurons and ReLU activation.
-- An output layer with a single neuron and sigmoid activation for binary classification.
-- Dropout layers were included with a rate of 0.3 to prevent overfitting.
-
-The model was compiled using the Adam optimizer and binary cross-entropy loss. The best model was saved validated by cross-validation results, including accuracy and loss for each fold.
-
-The FFNN model was evaluated on the test data, and its accuracy and loss metrics were reported.
-
+For each fold, the FFNN architecture was re-initialized and trained on the training data with early stopping and learning rate reduction implemented to avoid overfitting. Model checkpoints were used to save the best model based on validation accuracy. The model was compiled using the Adam optimizer and binary cross-entropy loss. The best model was saved validated by cross-validation results, including accuracy and loss for each fold.
 
 4. Multilayer Perceptron (MLP):
-   - Description: This model is a Multilayer Perceptron (MLP) used to detect DeepFake images. The model was trained using 'transformed' dataset, where features were prepared from the dataset, excluding the target feature. The dataset was split into training and testing sets.
-
-The MLP model architecture includes:
-- An input layer with 256 neurons, Batch Normalization, ReLU activation, and a dropout rate of 0.3.
-- A second hidden layer with 256 neurons, Batch Normalization, ReLU activation, and a dropout rate of 0.3.
-- A third hidden layer with 128 neurons, Batch Normalization, ReLU activation, and a dropout rate of 0.2.
-- An output layer with a single neuron and sigmoid activation for binary classification.
-
-The model was compiled using the Adam optimizer with a learning rate of 0.0001 and binary cross-entropy loss. Early stopping, model checkpointing, and learning rate reduction were implemented as callbacks to prevent overfitting and improve training.
+   - Description: This model is a Multilayer Perceptron (MLP) used to detect DeepFake images. The model was trained using 'transformed' dataset, where features were prepared from the dataset, excluding the target feature. The dataset was split into training and testing sets. The model was compiled using the Adam optimizer with a learning rate of 0.0001 and binary cross-entropy loss. Early stopping, model checkpointing, and learning rate reduction were implemented as callbacks to prevent overfitting and improve training.
 
 The MLP model was trained on the training data and validated on a validation split. The best model based on validation loss was saved, and the final model was evaluated on the test data, with accuracy and loss metrics printed to assess performance.
 
@@ -65,15 +45,6 @@ The MLP model differs from the FFNN in its use of Batch Normalization layers and
 5. Generative Adversarial Network (GAN) Discriminator:
    - This model is a Generative Adversarial Network (GAN) discriminator used to detect DeepFake images. The GAN consists of two parts: a generator and a discriminator. The discriminator's role is to distinguish between real and generated (fake) data, while the generator creates fake data to fool the discriminator.
 
-The discriminator model architecture includes:
-- An input layer that flattens the input features.
-- Two hidden layers with LeakyReLU activation and Dropout for regularization.
-- An output layer with a single neuron and sigmoid activation for binary classification.
-
 The model was compiled using the Adam optimizer with a reduced learning rate to ensure stability during training and binary cross-entropy loss. The discriminator was trained in conjunction with the generator using a custom training loop that updates both models iteratively.
 
 The generator creates fake data samples, and the discriminator learns to distinguish between real and fake samples. The discriminator's performance is evaluated by its ability to correctly classify real and fake data, with accuracy and loss metrics recorded.
-
-The discriminator and generator models were saved for future use.
-
-The GAN discriminator differs from the traditional Feedforward Neural Network (FFNN) and Multilayer Perceptron (MLP) models by being part of an adversarial training framework, where it continuously learns to improve its classification ability in response to the generator's evolving fake data samples.
